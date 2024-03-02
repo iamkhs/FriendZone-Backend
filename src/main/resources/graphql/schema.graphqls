@@ -1,0 +1,81 @@
+type User {
+    id: ID!
+    username: String
+    email: String!
+    createdAt: String
+    isEnable: Boolean
+    friendships: [Friendship]
+    posts: [Post]
+}
+
+type Friendship {
+    id: ID!
+    user: User!
+    friend: User!
+    status: FriendshipStatus!
+}
+
+enum FriendshipStatus {
+    PENDING
+    ACCEPTED
+}
+
+type Post {
+    id: ID!
+    details: String
+    postedAt: String
+    updatedAt: String
+    user: User!
+}
+
+type UserDto {
+    id : ID!
+    username: String!
+    email: String!
+    createdAt : String
+    isEnable : Boolean
+    profilePic : String
+    coverPic : String
+}
+type PostDto {
+    postId : ID!
+    postDetails : String
+    postedAt : String
+    updateAt : String
+    comments: [CommentDto] # Change to an array of CommentDto
+    username : String
+    postImageUrl : String
+    userProfileUrl : String
+    postLikedUsers : [String]
+    totalLikes : Int
+}
+
+type CommentDto {
+    id: ID
+    body : String
+    commenter : UserDto
+    commentAt : String
+}
+
+input userInput {
+    username: String!
+    password: String!
+    email: String!
+    phone: String
+}
+
+#type Mutation {
+#    createUser(user : userInput) : UserDto
+#}
+
+type Query{
+    getFiendsById(id : ID!, status: FriendshipStatus) : [UserDto]
+    getFriendsPost(userId : ID!): [PostDto]
+    getUserById(userId: ID!) : UserDto
+    getPostByUsername(username : String!) : [PostDto]
+    getAllUsers(userId : ID!) : [UserDto]
+    getPostById(postId : ID!) : PostDto
+    getUserByUsername(username : String!) : UserDto
+    getPostLikedUsers(postId: ID!) : [UserDto]
+}
+
