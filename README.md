@@ -2,6 +2,8 @@
 
 FriendZone is a clone of Facebook's core features, including posting, commenting, sending friend requests, and accepting friend requests. It is built using Java with Spring Boot.
 
+## ([Live Link](https://friend-zone-brown.vercel.app/login))
+
 ## Features
 
 - Users can create a new account.
