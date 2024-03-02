@@ -13,6 +13,7 @@ FriendZone is a clone of Facebook's core features, including posting, commenting
 - Users can comment on posts.
 - Posts can have text content and an image.
 - Users can verify their email addresses.
+- JWT Authentication.
 - Users will receive notifications when they receive any friend requests and when their posts are liked/commented on.
 
 ## Cloudinary Integration
